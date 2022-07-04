@@ -1,0 +1,33 @@
+Linux Java 11
+
+Benchmark                         (delay)  Mode  Cnt        Score      Error  Units
+ParkNanosBenchmark.parkNanos           10  avgt   40    57713.345 ±  165.827  ns/op
+ParkNanosBenchmark.parkNanos          100  avgt   40    57672.554 ±  444.892  ns/op
+ParkNanosBenchmark.parkNanos         1000  avgt   40    58646.654 ±  120.040  ns/op
+ParkNanosBenchmark.parkNanos        10000  avgt   40    68222.650 ±  115.751  ns/op
+ParkNanosBenchmark.parkNanos      1000000  avgt   40  1103499.893 ± 7793.704  ns/op
+ThreadSleep0Benchmark.sleep           N/A  avgt   40        1.091 ±    0.005  ms/op
+ThreadSleep0Benchmark.sleepNanos      N/A  avgt   40        1.110 ±    0.005  ms/op
+ThreadSleep1Benchmark.sleep             5  avgt   40        5.575 ±    0.003  ms/op
+ThreadSleep1Benchmark.sleep            10  avgt   40       11.140 ±    0.012  ms/op
+ThreadSleep1Benchmark.sleep            50  avgt   40       55.737 ±    0.042  ms/op
+ThreadSleep2Benchmark.sleep             5  avgt   40        5.565 ±    0.019  ms/op
+ThreadSleep2Benchmark.sleep            10  avgt   40       10.960 ±    0.083  ms/op
+ThreadSleep2Benchmark.sleep            50  avgt   40       50.602 ±    0.048  ms/op
+
+Linux Java 17
+
+Benchmark                         (delay)  Mode  Cnt        Score      Error  Units
+ParkNanosBenchmark.parkNanos           10  avgt   40    57331.896 ±  606.789  ns/op
+ParkNanosBenchmark.parkNanos          100  avgt   40    57701.988 ±  151.346  ns/op
+ParkNanosBenchmark.parkNanos         1000  avgt   40    58585.929 ±  119.138  ns/op
+ParkNanosBenchmark.parkNanos        10000  avgt   40    67984.687 ±  186.378  ns/op
+ParkNanosBenchmark.parkNanos      1000000  avgt   40  1093718.818 ± 7665.960  ns/op
+ThreadSleep0Benchmark.sleep           N/A  avgt   40        1.112 ±    0.003  ms/op
+ThreadSleep0Benchmark.sleepNanos      N/A  avgt   40        1.117 ±    0.001  ms/op
+ThreadSleep1Benchmark.sleep             5  avgt   40        5.547 ±    0.034  ms/op
+ThreadSleep1Benchmark.sleep            10  avgt   40       10.961 ±    0.068  ms/op
+ThreadSleep1Benchmark.sleep            50  avgt   40       54.385 ±    0.226  ms/op
+ThreadSleep2Benchmark.sleep             5  avgt   40        5.445 ±    0.015  ms/op
+ThreadSleep2Benchmark.sleep            10  avgt   40       10.867 ±    0.053  ms/op
+ThreadSleep2Benchmark.sleep            50  avgt   40       50.683 ±    0.053  ms/op
