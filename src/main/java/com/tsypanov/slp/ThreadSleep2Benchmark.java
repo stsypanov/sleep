@@ -9,12 +9,11 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-@Fork(jvmArgsAppend = {"-Xms1g", "-Xmx1g"})
 public class ThreadSleep2Benchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
   volatile boolean flag;
 
-  @Param({"5", "10", "50"})
+  @Param({"1", "5", "10", "50", "100"})
   long delay;
 
   @Setup(Level.Invocation)
