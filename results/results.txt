@@ -42,12 +42,18 @@ ParkNanosBenchmark.parkNanos        10000  avgt   40    17750,419 ±   256,214  
 ParkNanosBenchmark.parkNanos      1000000  avgt   40  1403117,216 ± 42218,338  ns/op
 ThreadSleep0Benchmark.sleep           N/A  avgt   40        1,373 ±     0,017  ms/op
 ThreadSleep0Benchmark.sleepNanos      N/A  avgt   40        1,391 ±     0,003  ms/op
+ThreadSleep1Benchmark.sleep             1  avgt   40        1,396 ±     0,003  ms/op
 ThreadSleep1Benchmark.sleep             5  avgt   40        6,771 ±     0,080  ms/op
 ThreadSleep1Benchmark.sleep            10  avgt   40       13,476 ±     0,148  ms/op
 ThreadSleep1Benchmark.sleep            50  avgt   40       66,458 ±     2,080  ms/op
+ThreadSleep1Benchmark.sleep           100  avgt   40      134,119 ±     1,154  ms/op
+ThreadSleep2Benchmark.sleep             1  avgt   40        2,559 ±     0,049  ms/op
 ThreadSleep2Benchmark.sleep             5  avgt   40        6,760 ±     0,036  ms/op
 ThreadSleep2Benchmark.sleep            10  avgt   40       12,549 ±     0,084  ms/op
 ThreadSleep2Benchmark.sleep            50  avgt   40       53,648 ±     0,110  ms/op
+ThreadSleep2Benchmark.sleep           100  avgt   40      107,280 ±     0,398  ms/op
+ThreadOnSpinWaitPlainBenchmark.onSpinWait  avgt   40     2478,869 ±   122,442  ns/op
+
 
 Mac Java 17
 
@@ -59,9 +65,14 @@ ParkNanosBenchmark.parkNanos        10000  avgt   40    17582,777 ±  159,145  n
 ParkNanosBenchmark.parkNanos      1000000  avgt   40  1369327,409 ± 9468,778  ns/op
 ThreadSleep0Benchmark.sleep           N/A  avgt   40        1,363 ±    0,008  ms/op
 ThreadSleep0Benchmark.sleepNanos      N/A  avgt   40        1,364 ±    0,010  ms/op
+ThreadSleep1Benchmark.sleep             1  avgt   40        1,259 ±    0,071  ms/op
 ThreadSleep1Benchmark.sleep             5  avgt   40        6,736 ±    0,093  ms/op
 ThreadSleep1Benchmark.sleep            10  avgt   40       13,678 ±    0,137  ms/op
 ThreadSleep1Benchmark.sleep            50  avgt   40       68,332 ±    0,546  ms/op
+ThreadSleep1Benchmark.sleep           100  avgt   40      158,272 ±    1,527  ms/op
+ThreadSleep2Benchmark.sleep             1  avgt   40        2,931 ±    0,026  ms/op
 ThreadSleep2Benchmark.sleep             5  avgt   40        6,760 ±    0,029  ms/op
 ThreadSleep2Benchmark.sleep            10  avgt   40       12,567 ±    0,067  ms/op
 ThreadSleep2Benchmark.sleep            50  avgt   40       53,694 ±    0,109  ms/op
+ThreadSleep2Benchmark.sleep           100  avgt   40      106,721 ±    0,296  ms/op
+ThreadOnSpinWaitPlainBenchmark.onSpinWait  avgt   40     2220,708 ±   31,784  ns/op
