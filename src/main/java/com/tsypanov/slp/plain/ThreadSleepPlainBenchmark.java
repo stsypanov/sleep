@@ -1,4 +1,4 @@
-package com.tsypanov.slp;
+package com.tsypanov.slp.plain;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -11,11 +11,16 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Fork(jvmArgsAppend = {"-Xms1g", "-Xmx1g"})
-public class ThreadSleep0Benchmark {
+public class ThreadSleepPlainBenchmark {
 
   @Benchmark
   public void sleep() throws Exception {
     Thread.sleep(1);
+  }
+
+  @Benchmark
+  public void sleepZero() throws Exception {
+    Thread.sleep(0);
   }
 
   @Benchmark
