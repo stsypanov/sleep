@@ -8,7 +8,7 @@ ParkNanosBenchmark.parkNanos                       10000  avgt   40    68222.650
 ParkNanosBenchmark.parkNanos                     1000000  avgt   40  1103499.893 ± 7793.704  ns/op
 ThreadSleepPlainBenchmark.sleep                      N/A  avgt   40        1.091 ±    0.005  ms/op
 ThreadSleepPlainBenchmark.sleepNanos                 N/A  avgt   40        1.110 ±    0.005  ms/op
-ThreadSleepPlainBenchmark.sleepZero                       avgt   40      484.261 ±      0.578  ns/op
+ThreadSleepPlainBenchmark.sleepZero                       avgt   40      484.261 ±    0.578  ns/op
 ThreadSleep1Benchmark.sleep                            1  avgt   40        1.113 ±    0.002  ms/op
 ThreadSleep1Benchmark.sleep                            5  avgt   40        5.575 ±    0.003  ms/op
 ThreadSleep1Benchmark.sleep                           10  avgt   40       11.140 ±    0.012  ms/op
@@ -66,7 +66,7 @@ ParkNanosBenchmark.parkNanos                       10000  avgt   40    17750,419
 ParkNanosBenchmark.parkNanos                     1000000  avgt   40  1403117,216 ± 42218,338  ns/op
 ThreadSleepPlainBenchmark.sleep                      N/A  avgt   40        1,373 ±     0,017  ms/op
 ThreadSleepPlainBenchmark.sleepNanos                 N/A  avgt   40        1,391 ±     0,003  ms/op
-ThreadSleepPlainBenchmark.sleepZero
+ThreadSleepPlainBenchmark.sleepZero                       avgt   40      344,699 ±    11,539  ns/op
 ThreadSleep1Benchmark.sleep                            1  avgt   40        1,396 ±     0,003  ms/op
 ThreadSleep1Benchmark.sleep                            5  avgt   40        6,771 ±     0,080  ms/op
 ThreadSleep1Benchmark.sleep                           10  avgt   40       13,476 ±     0,148  ms/op
@@ -89,7 +89,7 @@ ParkNanosBenchmark.parkNanos                       10000  avgt   40    17582,777
 ParkNanosBenchmark.parkNanos                     1000000  avgt   40  1369327,409 ± 9468,778  ns/op
 ThreadSleepPlainBenchmark.sleep                      N/A  avgt   40        1,363 ±    0,008  ms/op
 ThreadSleepPlainBenchmark.sleepNanos                 N/A  avgt   40        1,364 ±    0,010  ms/op
-ThreadSleepPlainBenchmark.sleepZero
+ThreadSleepPlainBenchmark.sleepZero                       avgt   40      339,193 ±   12,011  ns/op
 ThreadSleep1Benchmark.sleep                            1  avgt   40        1,259 ±    0,071  ms/op
 ThreadSleep1Benchmark.sleep                            5  avgt   40        6,736 ±    0,093  ms/op
 ThreadSleep1Benchmark.sleep                           10  avgt   40       13,678 ±    0,137  ms/op
