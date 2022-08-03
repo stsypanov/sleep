@@ -11,13 +11,13 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class ThreadOnSpinWaitPlainBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
-  volatile boolean flag;
+  volatile boolean run;
 
   @Setup(Level.Invocation)
   public void setUp() {
-    flag = true;
+    run = true;
     executor.submit(() -> {
-        flag = false;
+        run = false;
     });
   }
 
@@ -28,7 +28,7 @@ public class ThreadOnSpinWaitPlainBenchmark {
 
   @Benchmark
   public int onSpinWait() {
-    while (flag) {
+    while (run) {
       Thread.onSpinWait();
     }
     return hashCode();
