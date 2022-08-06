@@ -5,16 +5,20 @@ import org.openjdk.jmh.annotations.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.LockSupport;
 
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-public class ThreadSleep3Benchmark {
+public class ParkNanosInWhileLoopBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
   volatile boolean run;
 
   @Param({"1", "5", "10", "50", "100"})
   long delay;
+
+  @Param({"100", "200", "500"})
+  long pause;
 
   @Setup(Level.Invocation)
   public void setUp() {
@@ -28,9 +32,9 @@ public class ThreadSleep3Benchmark {
   }
 
   @Benchmark
-  public int sleep() throws Exception {
-    for (int i = 0; run && i < delay; i++) {
-      Thread.sleep(1);
+  public int sleep() {
+    while (run) {
+      LockSupport.parkNanos(TimeUnit.MICROSECONDS.toNanos(pause));
     }
     return hashCode();
   }

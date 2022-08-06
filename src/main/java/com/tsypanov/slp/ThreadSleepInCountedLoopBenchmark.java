@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-public class ThreadSleep2Benchmark {
+public class ThreadSleepInCountedLoopBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
   volatile boolean run;
 
@@ -29,7 +29,7 @@ public class ThreadSleep2Benchmark {
 
   @Benchmark
   public int sleep() throws Exception {
-    while (run) {
+    for (int i = 0; run && i < delay; i++) {
       Thread.sleep(1);
     }
     return hashCode();
