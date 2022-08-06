@@ -1,4 +1,4 @@
-package com.tsypanov.slp;
+package com.tsypanov.slp.plain;
 
 import org.openjdk.jmh.annotations.*;
 
@@ -8,12 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
-  public class WhileTrueBenchmark {
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
+public class WhileTrueBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
   volatile boolean run;
-
-  long delay = 1;
 
   @Setup(Level.Invocation)
   public void setUp() {
@@ -35,13 +33,7 @@ import java.util.concurrent.TimeUnit;
 
   private void startThread() {
     executor.submit(() -> {
-      try {
-        Thread.sleep(delay);
-        run = false;
-      } catch (InterruptedException e) {
-        Thread.currentThread().interrupt();
-        throw new RuntimeException(e);
-      }
+      run = false;
     });
   }
 }
