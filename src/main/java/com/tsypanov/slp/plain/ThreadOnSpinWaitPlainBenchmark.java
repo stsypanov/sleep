@@ -16,9 +16,7 @@ public class ThreadOnSpinWaitPlainBenchmark {
   @Setup(Level.Invocation)
   public void setUp() {
     run = true;
-    executor.submit(() -> {
-        run = false;
-    });
+    startThread();
   }
 
   @TearDown(Level.Trial)
@@ -32,5 +30,11 @@ public class ThreadOnSpinWaitPlainBenchmark {
       Thread.onSpinWait();
     }
     return hashCode();
+  }
+
+  private void startThread() {
+    executor.submit(() -> {
+      run = false;
+    });
   }
 }
