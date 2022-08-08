@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-public class ThreadSleepBenchmark {
+public class ThreadPausingBenchmark {
 
   @Benchmark
   public int sleep(SleepData data) throws Exception {return data.waitSleeping();}
