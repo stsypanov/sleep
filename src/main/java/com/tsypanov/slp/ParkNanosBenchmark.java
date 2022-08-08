@@ -15,7 +15,6 @@ import java.util.concurrent.locks.LockSupport;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(jvmArgsAppend = {"-Xms1g", "-Xmx1g"})
 public class ParkNanosBenchmark {
 
   @Param({"10", "100", "1000", "10000", "1000000"})

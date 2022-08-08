@@ -32,7 +32,7 @@ public class ParkNanosInCountedLoopBenchmark {
   }
 
   @Benchmark
-  public int sleep() throws Exception {
+  public int sleep() {
     for (int i = 0; run && i < delay; i++) {
       LockSupport.parkNanos(TimeUnit.MICROSECONDS.toNanos(pause));
     }

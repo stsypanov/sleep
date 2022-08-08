@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-@Fork(jvmArgsAppend = {"-Xms1g", "-Xmx1g"})
 public class ThreadSleepBenchmark {
 
   @Benchmark
