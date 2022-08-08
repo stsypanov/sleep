@@ -5,6 +5,7 @@ import org.openjdk.jmh.annotations.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.LockSupport;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -12,6 +13,9 @@ public class ThreadPausingBenchmark {
 
   @Benchmark
   public int sleep(SleepData data) throws Exception {return data.waitSleeping();}
+
+  @Benchmark
+  public int parkNanos(ParkNanosData data) throws Exception {return data.parkNanos();}
 
   @Benchmark
   public int spin(SpinData data) {return data.waitSpinning();}
@@ -23,6 +27,15 @@ public class ThreadPausingBenchmark {
     int waitSleeping() throws Exception {
       while (flag) {
         Thread.sleep(1);
+      }
+      return hashCode();
+    }
+  }
+
+  public static class ParkNanosData extends AbstractThreadData {
+    int parkNanos() {
+      while (flag) {
+        LockSupport.parkNanos(TimeUnit.MICROSECONDS.toNanos(500));
       }
       return hashCode();
     }
