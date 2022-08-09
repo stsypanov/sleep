@@ -79,6 +79,11 @@ ThreadSleep2Benchmark.sleep                           50  avgt   40       53,648
 ThreadSleep2Benchmark.sleep                          100  avgt   40      107,280 ±     0,398  ms/op
 ThreadOnSpinWaitPlainBenchmark.onSpinWait                 avgt   40     2478,869 ±   122,442  ns/op
 
+ThreadSleepVsParkNanosBenchmark.parkNanos100us            avgt  100      156,696 ±     6,977  us/op
+ThreadSleepVsParkNanosBenchmark.parkNanos500us            avgt  100      752,520 ±    23,203  us/op
+ThreadSleepVsParkNanosBenchmark.parkNanos1ms              avgt  100     1508,832 ±     7,580  us/op
+ThreadSleepVsParkNanosBenchmark.sleep1ms                  avgt  100     1430,396 ±    32,876  us/op
+
 Mac Java 17
 
 Benchmark                                        (delay)  Mode  Cnt        Score      Error  Units
