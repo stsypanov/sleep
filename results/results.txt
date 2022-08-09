@@ -26,6 +26,12 @@ ThreadOnSpinWaitBenchmark.onSpinWait                  50  avgt   40       50.084
 ThreadOnSpinWaitBenchmark.onSpinWait                 100  avgt   40      100.096 ±    0.010  ms/op
 plain.ThreadOnSpinWaitPlainBenchmark.onSpinWait      N/A  avgt   40     2059.759 ±    9.187  ns/op
 
+Benchmark                                                 Mode  Cnt        Score      Error  Units
+ThreadSleepVsParkNanosBenchmark.parkNanos100us            avgt  100      159.775 ±    0.248  us/op
+ThreadSleepVsParkNanosBenchmark.parkNanos500us            avgt  100      612.971 ±    0.578  us/op
+ThreadSleepVsParkNanosBenchmark.parkNanos1ms              avgt  100     1103.372 ±    4.685  us/op
+ThreadSleepVsParkNanosBenchmark.sleep1ms                  avgt  100     1119.566 ±    0.940  us/op
+
 
 Linux Java 17
 
