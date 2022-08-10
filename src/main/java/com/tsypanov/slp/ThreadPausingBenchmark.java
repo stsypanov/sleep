@@ -15,7 +15,7 @@ public class ThreadPausingBenchmark {
   public int sleep(SleepData data) throws Exception {return data.waitSleeping();}
 
   @Benchmark
-  public int parkNanos(ParkNanosData data) throws Exception {return data.parkNanos();}
+  public int parkNanos(ParkNanosData data) {return data.parkNanos();}
 
   @Benchmark
   public int spin(SpinData data) {return data.waitSpinning();}
@@ -25,7 +25,7 @@ public class ThreadPausingBenchmark {
 
   public static class SleepData extends AbstractThreadData {
     int waitSleeping() throws Exception {
-      while (flag) {
+      while (wait) {
         Thread.sleep(1);
       }
       return hashCode();
@@ -34,7 +34,7 @@ public class ThreadPausingBenchmark {
 
   public static class ParkNanosData extends AbstractThreadData {
     int parkNanos() {
-      while (flag) {
+      while (wait) {
         LockSupport.parkNanos(TimeUnit.MICROSECONDS.toNanos(500));
       }
       return hashCode();
@@ -43,7 +43,7 @@ public class ThreadPausingBenchmark {
 
   public static class SpinData extends AbstractThreadData {
     int waitSpinning() {
-      while (flag) {
+      while (wait) {
         Thread.onSpinWait();
       }
       return hashCode();
@@ -52,7 +52,7 @@ public class ThreadPausingBenchmark {
 
   public static class YieldData extends AbstractThreadData {
     int waitYielding() {
-      while (flag) {
+      while (wait) {
         Thread.yield();
       }
       return hashCode();
@@ -62,14 +62,14 @@ public class ThreadPausingBenchmark {
   @State(Scope.Thread)
   public static abstract class AbstractThreadData {
     final ExecutorService executor = Executors.newFixedThreadPool(1);
-    volatile boolean flag;
+    volatile boolean wait;
 
     @Param({"5", "10", "50"})
     long delay;
 
     @Setup(Level.Invocation)
     public void setUp() {
-      flag = true;
+      wait = true;
       startThread();
     }
 
@@ -82,7 +82,7 @@ public class ThreadPausingBenchmark {
       executor.submit(() -> {
         try {
           Thread.sleep(delay);
-          flag = false;
+          wait = false;
         } catch (InterruptedException e) {
           Thread.currentThread().interrupt();
           throw new RuntimeException(e);

@@ -11,11 +11,11 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class WhileTrueBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
-  volatile boolean run;
+  volatile boolean wait;
 
   @Setup(Level.Invocation)
   public void setUp() {
-    run = true;
+    wait = true;
     startThread();
   }
 
@@ -26,14 +26,14 @@ public class WhileTrueBenchmark {
 
   @Benchmark
   public int whileTrue() {
-    while (run) {
+    while (wait) {
     }
     return hashCode();
   }
 
   private void startThread() {
     executor.submit(() -> {
-      run = false;
+      wait = false;
     });
   }
 }

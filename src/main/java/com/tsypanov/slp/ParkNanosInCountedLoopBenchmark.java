@@ -12,7 +12,7 @@ import java.util.concurrent.locks.LockSupport;
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class ParkNanosInCountedLoopBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
-  volatile boolean run;
+  volatile boolean wait;
 
   @Param({"1", "5", "10", "50", "100"})
   long delay;
@@ -22,7 +22,7 @@ public class ParkNanosInCountedLoopBenchmark {
 
   @Setup(Level.Invocation)
   public void setUp() {
-    run = true;
+    wait = true;
     startThread();
   }
 
@@ -32,8 +32,8 @@ public class ParkNanosInCountedLoopBenchmark {
   }
 
   @Benchmark
-  public int sleep() {
-    for (int i = 0; run && i < delay; i++) {
+  public int parkNanos() {
+    for (int i = 0; wait && i < delay; i++) {
       LockSupport.parkNanos(TimeUnit.MICROSECONDS.toNanos(pause));
     }
     return hashCode();
@@ -43,7 +43,7 @@ public class ParkNanosInCountedLoopBenchmark {
     executor.submit(() -> {
       try {
         Thread.sleep(delay / 2);
-        run = false;
+        wait = false;
       } catch (InterruptedException e) {
         Thread.currentThread().interrupt();
         throw new RuntimeException(e);

@@ -19,13 +19,13 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class ThreadYieldPlainBenchmark {
   private final ExecutorService executor = Executors.newFixedThreadPool(1);
-  volatile boolean run;
+  volatile boolean wait;
 
   @Setup(Level.Invocation)
   public void setUp() {
-    run = true;
+    wait = true;
     executor.submit(() -> {
-        run = false;
+        wait = false;
     });
   }
 
@@ -36,7 +36,7 @@ public class ThreadYieldPlainBenchmark {
 
   @Benchmark
   public int yield() {
-    while (run) {
+    while (wait) {
       Thread.yield();
     }
     return hashCode();
